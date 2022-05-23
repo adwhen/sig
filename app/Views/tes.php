@@ -12,7 +12,7 @@
         <tbody>
             <?php foreach ($gempa as $g) : ?>
                 <tr>
-                    <td><?= $g['NUMB'] ?></td>
+
                     <td><?= $g['latitude'] ?></td>
                     <td><?= $g['longitude'] ?></td>
                     <td><?= $g['depth'] ?></td>
@@ -22,19 +22,20 @@
         </tbody>
     </table>
     <?php
-    $centroid = 5;
 
     $SSE = array();
     $SSE_MIN = array();
 
     $next_SSE = null;
-    $nilai_centroid_min = null;
-
+    // $nilai_centroid_min = null;
+    $centroid = 5;
     $queue = [5];
     $y = 0;
-
+    $banyak_perulangan = 8;
     $sse_total = array();
-    foreach ($gempa as $g) {
+
+    for ($y = 0; $y < $banyak_perulangan; $y++) {
+        $nilai_centroid_min = null;
         $total_SSE = 0;
         $x = 0;
         $next_c;
@@ -46,10 +47,6 @@
             } else {
                 $SSE[$x][$y] = pow(abs($gempa[$x]['latitude'] - $gempa[$centroid]['latitude']), 2) + pow(abs($gempa[$x]['longitude'] - $gempa[$centroid]['longitude']), 2) + pow(abs($gempa[$x]['depth'] - $gempa[$centroid]['depth']), 2) + pow(abs($gempa[$x]['strength'] - $gempa[$centroid]['strength']), 2);
             }
-
-            $total_SSE = $total_SSE + $SSE[$x][$y];
-
-
             #NILAI MINIMUM 
             if (empty($SSE_MIN[$x])) {
                 $SSE_MIN[$x] = $SSE[$x][$y];
@@ -65,8 +62,8 @@
                 $next_SSE = $x;
                 $nilai_centroid_min = $SSE[$x][$y];
             }
-
-            echo $SSE[$x][$y];
+            $total_SSE = $total_SSE + $SSE_MIN[$x];
+            echo $SSE_MIN[$x];
             $x++;
             echo "<BR>";
         }
@@ -76,10 +73,27 @@
         $centroid = $next_SSE;
         array_push($queue, $centroid);
         $sse_total[$y] = $total_SSE;
-
-        $y++;
     }
 
+    $z = 0;
+    $cluster = null;
+    $selisih;
+    for ($i = 0; $i < $banyak_perulangan; $i++) {
+        if ($i == 0) {
+            continue;
+        }
+        $selisih = abs($sse_total[$i] - $sse_total[$i - 1]);
+
+        if (empty($cluster)) {
+            $cluster = $i + 1;
+            $n_selisih = $selisih;
+        } elseif ($n_selisih < $selisih) {
+            $n_selisih = $selisih;
+            $cluster = $i + 1;
+        }
+    }
+    echo "final cluster =" . $cluster . " || dengan selisih = " . $n_selisih;
+    dd($sse_total);
 
     ?>
 
