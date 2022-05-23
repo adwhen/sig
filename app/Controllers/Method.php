@@ -11,6 +11,7 @@ class Method extends BaseController
     public function __construct()
     {
         $this->EarthquakeModel = new EarthquakeModel();
+        helper('method');
     }
     public function index()
     {
