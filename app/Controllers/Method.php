@@ -13,12 +13,20 @@ class Method extends BaseController
         $this->EarthquakeModel = new EarthquakeModel();
         helper('method');
     }
-    public function index()
+    public function elbow()
     {
         $eq = $this->EarthquakeModel->findAll();
         $data = [
             'gempa' => $eq
         ];
-        return view('tes', $data);
+        return view('elbow', $data);
+    }
+    public function clarans()
+    {
+        $eq = $this->EarthquakeModel->findAll();
+        $data = [
+            'gempa' => $eq
+        ];
+        return view('clarans', $data);
     }
 }

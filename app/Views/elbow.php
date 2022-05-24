@@ -93,6 +93,11 @@
         }
     }
     echo "final cluster =" . $cluster . " || dengan selisih = " . $n_selisih;
+    $data = array(
+        'CLUSTER_ELBOW' => $cluster
+    );
+    $ConfModel = new ConfModel();
+    $ConfModel->insert($data);
     dd($sse_total);
 
     ?>
