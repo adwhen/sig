@@ -1,3 +1,4 @@
+<?php $db = db_connect(); ?>
 <html>
 
 <body>
@@ -96,9 +97,8 @@
     $data = array(
         'CLUSTER_ELBOW' => $cluster
     );
-    $ConfModel = new ConfModel();
-    $ConfModel->insert($data);
-    dd($sse_total);
+    $db->table('tb_configuration')->insert($data);
+    //dd($sse_total);
 
     ?>
 
