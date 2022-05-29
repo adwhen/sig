@@ -33,4 +33,13 @@ class Method extends BaseController
         ];
         return view('clarans', $data);
     }
+    public function se()
+    {
+
+        $data = [
+            'gempa' => $this->EarthquakeModel->findAll(),
+            'conf' => $this->ConfModel->findAll()
+        ];
+        return view('silhoute_coefficient', $data);
+    }
 }

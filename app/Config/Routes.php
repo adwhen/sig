@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/Method-elbow', 'Method::elbow');
 $routes->get('/Method-clarans', 'Method::clarans');
+$routes->get('/Silhoute-coefficient', 'Method::se');
 
 /*
  * --------------------------------------------------------------------
