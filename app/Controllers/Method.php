@@ -38,7 +38,7 @@ class Method extends BaseController
 
         $data = [
             'gempa' => $this->EarthquakeModel->findAll(),
-            'conf' => $this->ConfModel->findAll()
+            'conf'  => $this->ConfModel->findAll()
         ];
         return view('silhoute_coefficient', $data);
     }
