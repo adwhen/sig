@@ -22,7 +22,7 @@ array_push($arr, $gabungstring);
 $node_M = $gabungstring;
 
 #hitung jarak NODE M
-$node_M = "1-4-7";
+// $node_M = "1-4-7";
 $explode = explode("-", $node_M);
 print_r($explode);
 echo "<br>";
@@ -92,10 +92,10 @@ for ($i = 0; $i < $numlocal; $i++) {
         array_push($arr, $gabungstring);
         $node_N = $gabungstring;
         #hitung jarak NODE N
-        $node_N = "0-4-7";
-        if ($z == 1) {
-            $node_N = "0-4-5";
-        }
+        // $node_N = "0-4-7";
+        // if ($z == 1) {
+        //     $node_N = "0-4-5";
+        // }
         $explode = explode("-", $node_N);
         print_r($explode);
         echo "<br>";
@@ -146,5 +146,6 @@ for ($j = 0; $j < $jumlah_klaster; $j++) {
     echo "|||||||" . $min_cost_N = $min_cost_N + $k_node_N[0];
     echo "<br>";
 }
+
 $db = db_connect();
 $db->table('tb_earthquake')->updateBatch($final_klaster, 'idx');

@@ -23,8 +23,8 @@ foreach ($gempa as $dt) {
 #mencari Ai
 for ($i = 1; $i <= $banyak_klaster; $i++) {
     $where['klaster'] = $i;
-    $data = $db->table('tb_earthquake')->getWhere($where)->getResultArray();
-    $jumlah = count($data);
+    $data = $set->getWhere($where)->getResultArray();
+    echo $jumlah = count($data);
     foreach ($data as $dt) {
         $total = 0;
         foreach ($data as $dt2) {
@@ -81,5 +81,5 @@ foreach ($gempa as $g) {
     $silhoute[$i]['sc'] = ($bi[$i] - $ai[$i]) / $penyebut;
 }
 $set->updateBatch($silhoute, 'idx');
-$silhoute_all = $set->select('avg(sc) as total,klaster')->groupBy("klaster")->get()->getResultArray();
-dd($silhoute_all);
+//$silhoute_all = $set->select('avg(sc) as total,klaster')->groupBy("klaster")->get()->getResultArray();
+#dd($silhoute_all);

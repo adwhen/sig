@@ -35,6 +35,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/Method-elbow', 'Method::elbow');
 $routes->get('/Method-clarans', 'Method::clarans');
 $routes->get('/Silhoute-coefficient', 'Method::se');
+$routes->get('/Result-elbow', 'home::result_elbow');
+$routes->get('/Result-clarans', 'home::result_clarans');
+$routes->get('/Result-silhoute-coefficient', 'home::result_se');
 
 /*
  * --------------------------------------------------------------------

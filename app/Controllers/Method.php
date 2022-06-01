@@ -22,7 +22,8 @@ class Method extends BaseController
         $data = [
             'gempa' => $eq
         ];
-        return view('elbow', $data);
+        echo view('elbow', $data);
+        return redirect()->route('Result-elbow');
     }
     public function clarans()
     {
@@ -31,7 +32,8 @@ class Method extends BaseController
             'gempa' => $this->EarthquakeModel->findAll(),
             'conf' => $this->ConfModel->findAll()
         ];
-        return view('clarans', $data);
+        echo view('clarans', $data);
+        return redirect()->route('Result-clarans');
     }
     public function se()
     {
@@ -40,6 +42,7 @@ class Method extends BaseController
             'gempa' => $this->EarthquakeModel->findAll(),
             'conf'  => $this->ConfModel->findAll()
         ];
-        return view('silhoute_coefficient', $data);
+        echo view('silhoute_coefficient', $data);
+        return redirect()->route('Result-silhoute-coefficient');
     }
 }

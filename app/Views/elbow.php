@@ -1,4 +1,6 @@
-<?php $db = db_connect(); ?>
+<?php $db = db_connect();
+$set = $db->table('tb_sse');
+?>
 <html>
 
 <body>
@@ -32,7 +34,7 @@
     $centroid = 5;
     $queue = [5];
     $y = 0;
-    $banyak_perulangan = 8;
+    $banyak_perulangan = 10;
     $sse_total = array();
 
     for ($y = 0; $y < $banyak_perulangan; $y++) {
@@ -73,7 +75,7 @@
         echo "-------------------------------------<br>";
         $centroid = $next_SSE;
         array_push($queue, $centroid);
-        $sse_total[$y] = $total_SSE;
+        $sse_total[$y]['sse'] = $total_SSE;
     }
 
     $z = 0;
@@ -83,7 +85,7 @@
         if ($i == 0) {
             continue;
         }
-        $selisih = abs($sse_total[$i] - $sse_total[$i - 1]);
+        $selisih = abs($sse_total[$i]['sse'] - $sse_total[$i - 1]['sse']);
 
         if (empty($cluster)) {
             $cluster = $i + 1;
@@ -93,10 +95,14 @@
             $cluster = $i + 1;
         }
     }
+    $db->query('TRUNCATE  tb_sse ');
+    $set->insertBatch($sse_total);
+    //dd($sse_total);
     echo "final cluster =" . $cluster . " || dengan selisih = " . $n_selisih;
     $data = array(
         'CLUSTER_ELBOW' => $cluster
     );
+    $db->query('TRUNCATE  tb_configuration ');
     $db->table('tb_configuration')->insert($data);
     //dd($sse_total);
 
