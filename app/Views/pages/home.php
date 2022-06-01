@@ -5,14 +5,29 @@
 
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
-        <div class="card-body">
-            <div id="map" style="height: 80vh;"></div>
-        </div>
+    <form action="/" method="GET">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input class="form-control" type="date" name="AWAL">
+                    </div>
+                    <div class="col-md-1">
+                        <center>
+                            <h2>-</h2>
+                        </center>
+
+                    </div>
+                    <div class="col-md-3"> <input class="form-control" type="date" name="AKHIR"></div>
+                    <div class="col-md-3"> <button class="btn btn-primary" type="submit">Search</button></div>
+                </div>
+
+            </div>
+    </form>
+    <div class="card-body">
+        <div id="map" style="height: 80vh;"></div>
     </div>
+</div>
 
 </div>
 <!-- /.container-fluid -->
