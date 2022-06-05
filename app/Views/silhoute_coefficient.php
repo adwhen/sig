@@ -15,7 +15,7 @@ $x = 0;
 foreach ($gempa as $dt) {
     $y = 0;
     foreach ($gempa as $dt2) {
-        $euc[$dt['idx']][$dt2['idx']] = euclidean($dt['latitude'], $dt['longitude'], $dt['depth'], $dt['strength'], $dt2['latitude'], $dt2['longitude'], $dt2['depth'], $dt2['strength']);
+        $euc[$dt['idx']][$dt2['idx']] = euclidean($dt['latitude'], $dt['longitude'], $dt['depth'], $dt['strength'], $dt['dn'], $dt2['latitude'], $dt2['longitude'], $dt2['depth'], $dt2['strength'], $dt2['dn']);
         $y++;
     }
     $x++;
