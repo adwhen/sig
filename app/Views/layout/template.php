@@ -89,6 +89,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <li class="nav-item">
+                <a class="nav-link" href="/download-data">
+                    <i class="fas fa-fw fa-download"></i>
+                    <span>Download Data</span></a>
+            </li>
+            <hr class="sidebar-divider">
             <!-- Heading -->
 
             <!-- Divider -->

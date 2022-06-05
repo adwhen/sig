@@ -38,6 +38,7 @@ $routes->get('/Silhoute-coefficient', 'Method::se');
 $routes->get('/Result-elbow', 'home::result_elbow');
 $routes->get('/Result-clarans', 'home::result_clarans');
 $routes->get('/Result-silhoute-coefficient', 'home::result_se');
+$routes->get('/download-data', 'home::download');
 
 /*
  * --------------------------------------------------------------------

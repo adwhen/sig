@@ -72,4 +72,14 @@ class Home extends BaseController
         ];
         return view('pages/result_se', $data);
     }
+    public function download()
+    {
+
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=Data Earthquake.xls");
+        $data = [
+            'gempa' => $this->EarthquakeModel->findAll()
+        ];
+        echo view('download', $data);
+    }
 }
