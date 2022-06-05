@@ -21,10 +21,28 @@ class Home extends BaseController
     }
     public function index()
     {
-        $data = [
-            'gempa' => $this->EarthquakeModel->findAll(),
-            'conf' => $this->ConfModel->findAll()
-        ];
+        $awal = $this->request->getVar('AWAL');
+        $akhir = $this->request->getVar('AKHIR');
+        $klaster = $this->request->getVar('klaster');
+
+        if (empty($awal) and empty($akhir) and empty($klaster)) {
+            $data['gempa'] = $this->EarthquakeModel->findAll();
+        } else {
+            if (!empty($awal) and !empty($akhir)) {
+                $where['created_at >='] = $awal;
+                $where['created_at <='] = $akhir;
+                $data['awal'] = $awal;
+                $data['akhir'] = $akhir;
+            }
+            if (!empty($klaster)) {
+                $where['klaster'] = $klaster;
+                $data['klaster'] = $klaster;
+            }
+            $data['gempa'] = $this->EarthquakeModel->where($where)->findAll();
+        }
+
+
+        $data['conf'] = $this->ConfModel->findAll();
         return view('pages/home', $data);
     }
     public function result_elbow()
@@ -53,5 +71,15 @@ class Home extends BaseController
             'ssem' => $this->SseModel->findAll(),
         ];
         return view('pages/result_se', $data);
+    }
+    public function download()
+    {
+
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=Data Earthquake.xls");
+        $data = [
+            'gempa' => $this->EarthquakeModel->findAll()
+        ];
+        echo view('download', $data);
     }
 }

@@ -31,9 +31,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Earthquake </div>
             </a>
 
             <!-- Divider -->
@@ -55,7 +55,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Method</span>
@@ -68,7 +68,7 @@
                         <a class="collapse-item" href="/Silhoute-coefficient">Silhoute Coefficient</a>
                     </div>
                 </div>
-            </li> -->
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -89,6 +89,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <li class="nav-item">
+                <a class="nav-link" href="/download-data">
+                    <i class="fas fa-fw fa-download"></i>
+                    <span>Download Data</span></a>
+            </li>
+            <hr class="sidebar-divider">
             <!-- Heading -->
 
             <!-- Divider -->

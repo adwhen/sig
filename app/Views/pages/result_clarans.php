@@ -20,6 +20,7 @@
                             <th>Longitude</th>
                             <th>Depth</th>
                             <th>Strenght</th>
+                            <th>Date</th>
                             <th>Klaster</th>
                         </tr>
                     </thead>
@@ -32,6 +33,7 @@
                                 <td><?= $g['longitude'] ?></td>
                                 <td><?= $g['depth'] ?></td>
                                 <td><?= $g['strength'] ?></td>
+                                <td><?= $g['created_at'] ?></td>
                                 <td><?= $g['klaster'] ?></td>
                             </tr>
                         <?php $x++;

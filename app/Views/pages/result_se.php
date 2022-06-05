@@ -17,6 +17,7 @@
                             <th>Longitude</th>
                             <th>Depth</th>
                             <th>Strenght</th>
+                            <th>Date</th>
                             <th>a(i)</th>
                             <th>b(i)</th>
                             <th>s(i)</th>
@@ -35,6 +36,7 @@
                                 <td><?= $g['longitude'] ?></td>
                                 <td><?= $g['depth'] ?></td>
                                 <td><?= $g['strength'] ?></td>
+                                <td><?= $g['created_at'] ?></td>
                                 <td><?= $g['ai'] ?></td>
                                 <td><?= $g['bi'] ?></td>
                                 <td><?= $g['sc'] ?></td>
