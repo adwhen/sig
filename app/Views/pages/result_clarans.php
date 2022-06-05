@@ -47,7 +47,7 @@
             <?php
             $db = db_connect();
             $set = $db->table('tb_earthquake');
-            $data = $set->select('max(depth),min(depth),max(latitude),min(latitude),max(longitude),min(longitude),max(strength),min(strength),klaster')->groupBy("klaster")->get()->getResultArray();
+            $data = $set->select('max(depth),min(depth),max(latitude),min(latitude),max(longitude),min(longitude),max(strength),min(strength),max(created_at),min(created_at),klaster')->groupBy("klaster")->get()->getResultArray();
             ?>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -56,6 +56,7 @@
                     <th>Longitude</th>
                     <th>Strength</th>
                     <th>Depth</th>
+                    <th>Date</th>
                 </thead>
                 <tbody>
                     <?php foreach ($data as $dt) : ?>
@@ -63,8 +64,9 @@
                             <td><?= $dt['klaster'] ?></td>
                             <td><?= "(" . $dt['min(latitude)'] . ") - (" . $dt['max(latitude)'] . ")" ?></td>
                             <td><?= "(" . $dt['min(longitude)'] . ") - (" . $dt['max(longitude)'] . ")" ?></td>
-                            <td><?= "(" . $dt['min(depth)'] . ") - (" . $dt['max(depth)'] . ")" ?></td>
                             <td><?= "(" . $dt['min(strength)'] . ") - (" . $dt['max(strength)'] . ")" ?></td>
+                            <td><?= "(" . $dt['min(depth)'] . ") - (" . $dt['max(depth)'] . ")" ?></td>
+                            <td><?= "(" . $dt['min(created_at)'] . ") - (" . $dt['max(created_at)'] . ")" ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

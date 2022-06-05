@@ -48,7 +48,7 @@ $set = $db->table('tb_sse');
                 $SSE[$x][$y] = 0;
                 echo "match found" . $x;
             } else {
-                $SSE[$x][$y] = pow(abs($gempa[$x]['latitude'] - $gempa[$centroid]['latitude']), 2) + pow(abs($gempa[$x]['longitude'] - $gempa[$centroid]['longitude']), 2) + pow(abs($gempa[$x]['depth'] - $gempa[$centroid]['depth']), 2) + pow(abs($gempa[$x]['strength'] - $gempa[$centroid]['strength']), 2);
+                $SSE[$x][$y] = pow(abs($gempa[$x]['latitude'] - $gempa[$centroid]['latitude']), 2) + pow(abs($gempa[$x]['longitude'] - $gempa[$centroid]['longitude']), 2) + pow(abs($gempa[$x]['depth'] - $gempa[$centroid]['depth']), 2) + pow(abs($gempa[$x]['strength'] - $gempa[$centroid]['strength']), 2) + pow(abs($gempa[$x]['dn'] - $gempa[$centroid]['dn']), 2);
             }
             #NILAI MINIMUM 
             if (empty($SSE_MIN[$x])) {

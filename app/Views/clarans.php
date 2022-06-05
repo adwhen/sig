@@ -30,7 +30,7 @@ $min_cost_M = 0;
 for ($j = 0; $j < $jumlah_klaster; $j++) {
     for ($i = 0; $i < $klaster; $i++) {
         $nilai = $explode[$i];
-        echo $k_node_M[$i] = sqrt(pow(($gempa[$j]['latitude'] - $gempa[$nilai]['latitude']), 2) + pow(($gempa[$j]['longitude'] - $gempa[$nilai]['longitude']), 2) + pow(($gempa[$j]['depth'] - $gempa[$nilai]['depth']), 2) + pow(($gempa[$j]['strength'] - $gempa[$nilai]['strength']), 2));
+        echo $k_node_M[$i] = sqrt(pow(($gempa[$j]['latitude'] - $gempa[$nilai]['latitude']), 2) + pow(($gempa[$j]['longitude'] - $gempa[$nilai]['longitude']), 2) + pow(($gempa[$j]['depth'] - $gempa[$nilai]['depth']), 2) + pow(($gempa[$j]['strength'] - $gempa[$nilai]['strength']), 2) + pow(($gempa[$j]['dn'] - $gempa[$nilai]['dn']), 2));
 
         echo "-";
     }
@@ -103,7 +103,7 @@ for ($i = 0; $i < $numlocal; $i++) {
         for ($j = 0; $j < $jumlah_klaster; $j++) {
             for ($i = 0; $i < $klaster; $i++) {
                 $nilai = $explode[$i];
-                echo $k_node_N[$i] = sqrt(pow(($gempa[$j]['latitude'] - $gempa[$nilai]['latitude']), 2) + pow(($gempa[$j]['longitude'] - $gempa[$nilai]['longitude']), 2) + pow(($gempa[$j]['depth'] - $gempa[$nilai]['depth']), 2) + pow(($gempa[$j]['strength'] - $gempa[$nilai]['strength']), 2));
+                echo $k_node_N[$i] = sqrt(pow(($gempa[$j]['latitude'] - $gempa[$nilai]['latitude']), 2) + pow(($gempa[$j]['longitude'] - $gempa[$nilai]['longitude']), 2) + pow(($gempa[$j]['depth'] - $gempa[$nilai]['depth']), 2) + pow(($gempa[$j]['strength'] - $gempa[$nilai]['strength']), 2) + pow(($gempa[$j]['dn'] - $gempa[$nilai]['dn']), 2));
 
                 echo "-";
             }
@@ -126,7 +126,7 @@ for ($j = 0; $j < $jumlah_klaster; $j++) {
 
     for ($i = 0; $i < $klaster; $i++) {
         $nilai = $explode[$i];
-        $k_node_N[$i] = sqrt(pow(($gempa[$j]['latitude'] - $gempa[$nilai]['latitude']), 2) + pow(($gempa[$j]['longitude'] - $gempa[$nilai]['longitude']), 2) + pow(($gempa[$j]['depth'] - $gempa[$nilai]['depth']), 2) + pow(($gempa[$j]['strength'] - $gempa[$nilai]['strength']), 2));
+        $k_node_N[$i] = sqrt(pow(($gempa[$j]['latitude'] - $gempa[$nilai]['latitude']), 2) + pow(($gempa[$j]['longitude'] - $gempa[$nilai]['longitude']), 2) + pow(($gempa[$j]['depth'] - $gempa[$nilai]['depth']), 2) + pow(($gempa[$j]['strength'] - $gempa[$nilai]['strength']), 2) + pow(($gempa[$j]['dn'] - $gempa[$nilai]['dn']), 2));
 
         if ($explode[$i] == $j) {
             $final = $i + 1;
