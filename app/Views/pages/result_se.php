@@ -1,5 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- DataTales Example -->
@@ -79,6 +80,14 @@
             Silhoute Coefficient Global : <?php echo $total / ($x - 1); ?>
         </div>
     </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h6>Grafik</h6>
+            <div>
+                <canvas id="myChart" width="400" height="100"></canvas>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -93,5 +102,37 @@
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url() ?>/js/demo/datatables-demo.js"></script>
+
+
+<script>
+    const labels = [
+        <?php $x = 1;
+        foreach ($klaster as $k) { ?> 'SE <?= $x++ ?>', <?php } ?>
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'dataset Silhoute Coefficient',
+            backgroundColor: '#4e73df',
+            borderColor: '#4e73df',
+            data: [<?php $x = 1;
+                    foreach ($klaster as $k) { ?> <?= $klaster[$x] / $penyebut[$x] ?>, <?php $x++;
+                                                                                    } ?>],
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+</script>
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>
 
 <?= $this->endSection('script'); ?>
