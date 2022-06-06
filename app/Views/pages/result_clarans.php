@@ -18,9 +18,9 @@
                             <th>Nomor</th>
                             <th>Latitude</th>
                             <th>Longitude</th>
-                            <th>Depth</th>
-                            <th>Strenght</th>
-                            <th>Date</th>
+                            <th>Kedalaman (KM)</th>
+                            <th>Kekuatan (SR)</th>
+                            <th>Tanggal</th>
                             <th>Klaster</th>
                         </tr>
                     </thead>
@@ -49,16 +49,17 @@
             <?php
             $db = db_connect();
             $set = $db->table('tb_earthquake');
-            $data = $set->select('max(depth),min(depth),max(latitude),min(latitude),max(longitude),min(longitude),max(strength),min(strength),max(created_at),min(created_at),klaster')->groupBy("klaster")->get()->getResultArray();
+            $data = $set->select('max(depth),min(depth),max(latitude),min(latitude),max(longitude),min(longitude),max(strength),min(strength),max(created_at),min(created_at),klaster,count(idx)')->groupBy("klaster")->get()->getResultArray();
             ?>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <th>Klaster</th>
                     <th>Latitude</th>
                     <th>Longitude</th>
-                    <th>Strength</th>
-                    <th>Depth</th>
-                    <th>Date</th>
+                    <th>Kekuatan (KM)</th>
+                    <th>Kedalaman (SR)</th>
+                    <th>Tanggal</th>
+                    <th>Jumlah</th>
                 </thead>
                 <tbody>
                     <?php foreach ($data as $dt) : ?>
@@ -69,6 +70,7 @@
                             <td><?= "(" . $dt['min(strength)'] . ") - (" . $dt['max(strength)'] . ")" ?></td>
                             <td><?= "(" . $dt['min(depth)'] . ") - (" . $dt['max(depth)'] . ")" ?></td>
                             <td><?= "(" . $dt['min(created_at)'] . ") - (" . $dt['max(created_at)'] . ")" ?></td>
+                            <td><?= $dt['count(idx)']?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

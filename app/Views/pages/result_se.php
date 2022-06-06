@@ -15,9 +15,9 @@
                             <th>i</th>
                             <th>Latitude</th>
                             <th>Longitude</th>
-                            <th>Depth</th>
-                            <th>Strenght</th>
-                            <th>Date</th>
+                            <th>Kedalaman (KM)</th>
+                            <th>Kekuatan (SR)</th>
+                            <th>Tanggal</th>
                             <th>a(i)</th>
                             <th>b(i)</th>
                             <th>s(i)</th>
